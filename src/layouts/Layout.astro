@@ -1,6 +1,6 @@
 ---
 interface Props {
-	title: string;
+  title: string;
 }
 
 const { title } = Astro.props;
@@ -8,73 +8,121 @@ const { title } = Astro.props;
 
 <!doctype html>
 <html lang="en">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="description" content="Astro description" />
-		<meta name="viewport" content="width=device-width" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-	</head>
-	<body>
-		<slot />
-	</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="description" content="Astro description" />
+    <meta name="viewport" content="width=device-width" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link
+      type="text/css"
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Merriweather:300,400,700"
+    />
+    <meta name="generator" content={Astro.generator} />
+    <title>{title}</title>
+  </head>
+  <body>
+    <div class="App">
+      <div class="page">
+        <slot />
+      </div>
+    </div>
+  </body>
 </html>
 <style is:global>
-	:root {
-		--accent: 136, 58, 234;
-		--accent-light: 224, 204, 250;
-		--accent-dark: 49, 10, 101;
-		--accent-gradient: linear-gradient(
-			45deg,
-			rgb(var(--accent)),
-			rgb(var(--accent-light)) 30%,
-			white 60%
-		);
-	}
-	html {
-		font-family: system-ui, sans-serif;
-		background: #13151a;
-		background-size: 224px;
-	}
-	code {
-		font-family:
-			Menlo,
-			Monaco,
-			Lucida Console,
-			Liberation Mono,
-			DejaVu Sans Mono,
-			Bitstream Vera Sans Mono,
-			Courier New,
-			monospace;
-	}
+  *,
+  :after,
+  :before {
+    box-sizing: inherit;
+  }
 
-	body{
-		background-color: rgba(255,255,255,1);
-		font-family: 'Merriweather',serif;
-    	color: rgba(0,0,0,1);
-    	min-height: 100%;
-    	font-size: 0.9em;
-		font-weight: 400;
-    	font-style: normal;
-    	text-decoration: none;
- 		letter-spacing: normal;
-    	text-transform: none;
-    	line-height: normal;
-	}
+  body,
+  html {
+    min-height: 100%;
+  }
 
-	.pb-elements{
-	width: 100%;
+  html {
+    width: 100vw;
+    overflow-x: hidden;
+  }
+
+  body {
+    background-color: rgba(255, 255, 255, 1);
+    margin: 0px;
+  }
+
+  blockquote,
+  body,
+  dd,
+  dl,
+  dt,
+  fieldset,
+  figure,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  hr,
+  html,
+  iframe,
+  legend,
+  li,
+  ol,
+  p,
+  pre,
+  textarea,
+  ul {
+    margin: 0;
+    padding: 0;
+    font-size: 100%;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-size: 100%;
+    font-weight: 400;
+  }
+
+  .App {
+    font-size: 16px;
+  }
+
+  .page {
+    position: relative;
+    background-color: rgba(255, 255, 255, 1);
+    font-family: "Merriweather", serif;
+    color: rgba(0, 0, 0, 1);
+    min-height: 100%;
+    font-size: 0.9em;
+    font-weight: 400;
+    font-style: normal;
+    text-decoration: none;
+    letter-spacing: normal;
+    text-transform: none;
+    line-height: normal;
+  }
+
+  @media only screen and (max-width: 1200px) .App {
+    font-size: 14px;
+  }
+
+  .pb-elements {
+    width: 100%;
     display: flex;
     flex-direction: column;
     align-items: center;
-	}
+  }
 
-	.Header{
-	font-size: 1.8em;
+  .Header {
+    font-size: 1.8em;
     text-transform: uppercase;
     text-align: center;
     letter-spacing: 0.1em;
-	}
-
+  }
 </style>
