@@ -7,7 +7,7 @@ const images = await Astro.glob("../Images/*").then((files) => {
 
 <Layout title="Welcome to Astro.">
 <div class="galleryContainer">
-  <div class="column0">
+  <div>
     {
       images.slice(0, 15).map(({ src }) => (
         <div class="card">
@@ -18,7 +18,7 @@ const images = await Astro.glob("../Images/*").then((files) => {
       ))
     }
   </div>
-  <div class="column1">
+  <div>
     {
       images.slice(15, 30).map(({ src }) => (
         <div class="card">
@@ -29,7 +29,7 @@ const images = await Astro.glob("../Images/*").then((files) => {
       ))
     }
   </div>
-  <div class="column2">
+  <div>
     {
       images.slice(30, 43).map(({ src }) => (
         <div class="card">
@@ -55,11 +55,9 @@ const images = await Astro.glob("../Images/*").then((files) => {
     text-align: center;
     margin-top: 10px !important;
   }
-  .galleryContainer:not(.singleColumn) > div {
-    max-width: min-content !important;
-  }
 
   .galleryContainer > div {
+    max-width: min-content !important;
     min-width: 369px;
     display: inline-flex;
     flex-direction: column;
@@ -68,7 +66,6 @@ const images = await Astro.glob("../Images/*").then((files) => {
   }
 
   .card {
-    /* aspect-ratio: 0.80217; */
     max-height: 90vh;
     border: none;
     border-radius: 5px;
