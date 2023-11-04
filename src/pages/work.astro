@@ -1,7 +1,28 @@
 ---
-import Layout from "../layouts/Layout.astro";
+import { Image } from "astro:assets";
+const images = await Astro.glob("../Images/*").then((files) => {
+  return files.map((file) => file.default);
+});
 ---
 
-<Layout title="Welcome to Astro.">
-  <p>Work</p>
-</Layout>
+<div class="galleryContainer">
+  {
+    images.map(({ src }) => (
+      <div>
+        <img src={src} alt="" loading="lazy" />
+      </div>
+    ))
+  }
+</div>
+<style>
+  .galleryContainer {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-gap: 1rem 3rem;
+    grid-template-rows: masonry;
+  }
+
+  img{
+    object-fit: contain;
+  }
+</style>
