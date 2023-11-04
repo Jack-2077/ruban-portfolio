@@ -1,28 +1,96 @@
 ---
-import { Image } from "astro:assets";
+import Layout from "../layouts/Layout.astro";
 const images = await Astro.glob("../Images/*").then((files) => {
   return files.map((file) => file.default);
 });
 ---
 
+<Layout title="Welcome to Astro.">
 <div class="galleryContainer">
-  {
-    images.map(({ src }) => (
-      <div>
-        <img src={src} alt="" loading="lazy" />
-      </div>
-    ))
-  }
+  <div class="column0">
+    {
+      images.slice(0, 15).map(({ src }) => (
+        <div class="card">
+          <div class="content">
+            <img src={src} alt="" loading="lazy" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="column1">
+    {
+      images.slice(15, 30).map(({ src }) => (
+        <div class="card">
+          <div class="content">
+            <img src={src} alt="" loading="lazy" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
+  <div class="column2">
+    {
+      images.slice(30, 43).map(({ src }) => (
+        <div class="card">
+          <div class="content">
+            <img src={src} alt="" loading="lazy" />
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </div>
+</Layout>
 <style>
   .galleryContainer {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: 1rem 3rem;
-    grid-template-rows: masonry;
+    display: flex;
+    flex-wrap: nowrap !important;
+    gap: 15px;
+    padding: 20px;
+    align-items: flex-start;
+    box-sizing: border-box;
+    justify-content: center;
+    clear: both;
+    text-align: center;
+    margin-top: 10px !important;
+  }
+  .galleryContainer:not(.singleColumn) > div {
+    max-width: min-content !important;
   }
 
-  img{
-    object-fit: contain;
+  .galleryContainer > div {
+    min-width: 369px;
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: inherit;
+  }
+
+  .card {
+    /* aspect-ratio: 0.80217; */
+    max-height: 90vh;
+    border: none;
+    border-radius: 5px;
+    position: relative;
+    display: inline-block;
+    vertical-align: top;
+    box-shadow: none;
+    background-color: #fff;
+    overflow: hidden;
+    max-width: 100%;
+  }
+
+  .content {
+    border-radius: 5px;
+    position: relative;
+    overflow: hidden;
+    margin: 0;
+  }
+
+  img {
+    display: block;
+    border: none;
+    width: 100%;
   }
 </style>
