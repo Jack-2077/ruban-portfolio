@@ -1,7 +1,55 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import InstagramIcon from "../icons/Instagram.astro";
+import LitmindIcon from "../icons/Litmind.astro";
+import TwitterIcon from "../icons/Twitter.astro";
+import GmailIcon from "../icons/Gmail.astro";
+import PhoneIcon from "../icons/Phone.astro";
 ---
 
 <Layout title="Contact - Ruban Roy">
-  <p>Contact</p>
+  <div class="container">
+    <img src="/compCard.png" alt="" />
+    <div class="socialMedia">
+      <div class="icon">
+        <a href="https://www.instagram.com/ima_peace_maker/" target="_blank"
+          ><InstagramIcon /></a
+        >
+      </div>
+      <div class="icon">
+        <a href="https://litmind.com/imapeacemaker/" target="_blank"
+          ><LitmindIcon /></a
+        >
+      </div>
+      <div class="icon">
+        <a href="https://twitter.com/ima_peacemaker/" target="_blank"
+          ><TwitterIcon /></a
+        >
+      </div>
+      <div class="icon">
+        <a href="mailto:rubanroy999@gmail.com" target="_blank"
+          ><GmailIcon /></a
+        >
+      </div>
+      <div class="icon">
+        <a href="tel:+17782318977" target="_blank"
+          ><PhoneIcon /></a
+        >
+      </div>
+    </div>
+  </div>
 </Layout>
+<style>
+  .container {
+    width: 80%;
+    padding-right: 2.5%;
+    padding-left: 2.5%;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+  }
+  img {
+    height: 30%;
+    width: 50%;
+  }
+</style>
