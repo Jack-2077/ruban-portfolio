@@ -53,7 +53,6 @@ import TwitterIcon from "../icons/Twitter.astro";
   .wrapper {
     display: flex;
     flex-direction: column;
-    align-items: center;
   }
 
   section {
@@ -74,6 +73,13 @@ import TwitterIcon from "../icons/Twitter.astro";
     background-size: cover;
   }
 
+  @media only screen and (max-width: 999px) {
+    section {
+      display: block;
+      background-attachment: scroll!important;
+    }
+  }
+
   .singleImageBg {
     background-attachment: initial;
     background-size: cover;
@@ -83,6 +89,13 @@ import TwitterIcon from "../icons/Twitter.astro";
     width: 50vw;
     align-self: auto;
     overflow: hidden;
+  }
+
+  @media only screen and (max-width: 999px) {
+    .singleImageBg {
+      width: 100% !important;
+      min-height: 50vh;
+    }
   }
 
   .imageContainer {
@@ -97,6 +110,15 @@ import TwitterIcon from "../icons/Twitter.astro";
     background-position-x: inherit;
   }
 
+  @media only screen and (max-width: 999px) {
+    .imageContainer {
+      min-height: 50vh;
+      height: inherit!important;
+      background-attachment: scroll !important;
+    }
+  }
+
+  
   .pbInfo {
     width: 50vw;
     height: 100%;

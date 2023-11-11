@@ -32,20 +32,40 @@ const column3 = shuffledImages.slice(Math.ceil((2 * shuffledImages.length) / 3))
   <ImageCard imagesGallery={column3} firstImage="/gallery3Img.JPG"/>
 </div>
 </Layout>
-<script>
-  
-</script>
 <style>
   .galleryContainer {
     display: flex;
-    flex-wrap: nowrap !important;
+    /* flex-wrap: nowrap !important; */
+    flex-wrap: wrap;
     gap: 15px;
     padding: 20px;
     align-items: flex-start;
-    box-sizing: border-box;
+    /* box-sizing: border-box; */
     justify-content: center;
-    clear: both;
+    /* clear: both; */
     text-align: center;
     margin-top: 10px !important;
   }
+
+  @media only screen and (max-width: 1150px) {
+    .galleryContainer > .container:nth-child(3) {
+      width: 100%;
+    }
+  }
+
+
+  /* @media only screen and (max-width: 1100px) {
+    .galleryContainer {
+      flex-wrap: wrap;
+    }
+  }
+
+  @media only screen and (max-width: 800px) {
+    .galleryContainer {
+      flex-direction: column;
+      align-items: center;
+    }
+  } */
+
+  //1180px
 </style>
