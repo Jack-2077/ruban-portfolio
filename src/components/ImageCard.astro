@@ -1,8 +1,13 @@
 ---
-const { imagesGallery } = Astro.props;
+const { imagesGallery, firstImage } = Astro.props;
 ---
 
 <div class="container">
+  <div class="card">
+    <div class="content">
+      <img src={firstImage} alt=""  />
+    </div>
+  </div>
   {
     imagesGallery.map(({ src }) => (
       <div class="card">
