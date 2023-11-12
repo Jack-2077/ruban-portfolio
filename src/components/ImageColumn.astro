@@ -2,32 +2,48 @@
 const { imagesGallery, firstImage } = Astro.props;
 ---
 
-<div class="container">
-  <div class="card">
-    <div class="content">
-      <img src={firstImage} alt="" />
-    </div>
-  </div>
-  {
-    imagesGallery.map(({ src }) => (
-      <div class="card">
-        <div class="content">
-          <img src={src} alt="" loading="lazy" />
-        </div>
-      </div>
-    ))
-  }
+<div class="column">
+  <img src={firstImage} alt="" />
+  {imagesGallery.map(({ src }) => <img src={src} alt="" loading="lazy" />)}
 </div>
+
 <style>
-  .container {
+  .column {
+    flex: 33.33%;
+    max-width: 33.33%;
+    box-sizing: border-box;
+    padding: 0 8px;
+    border-radius: 5px;
+  }
+
+  .column img {
+    margin-top: 8px;
+    vertical-align: middle;
+    width: 100%;
+  }
+
+  @media screen and (max-width: 800px) {
+    .column {
+      flex: 50%;
+      max-width: 50%;
+    }
+  }
+
+  @media screen and (max-width: 600px) {
+    .column {
+      flex: 100%;
+      max-width: 100%;
+    }
+  }
+  /* .container {
     max-width: min-content !important;
     min-width: 369px;
     display: inline-flex;
     flex-direction: column;
     align-items: center;
     gap: inherit;
-  }
-  .card {
+  } */
+  /* .column {
     max-height: 90vh;
     border: none;
     border-radius: 5px;
@@ -60,5 +76,5 @@ const { imagesGallery, firstImage } = Astro.props;
 
   .content:hover img {
     transform: scale(1.5);
-  }
+  } */
 </style>
