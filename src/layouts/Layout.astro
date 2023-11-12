@@ -7,6 +7,7 @@ const { title } = Astro.props;
 
 import { ViewTransitions } from "astro:transitions";
 import Nav from "../components/Nav.astro";
+import Footer from "../components/Footer.astro";
 ---
 
 <!doctype html>
@@ -24,14 +25,6 @@ import Nav from "../components/Nav.astro";
     <meta name="generator" content={Astro.generator} />
     <title>{title}</title>
     <ViewTransitions />
-  </head>
-  <body>
-    <div class="App">
-      <div class="page">
-        <Nav />
-        <slot />
-      </div>
-    </div>
     <style is:global>
       *,
       :after,
@@ -174,5 +167,14 @@ import Nav from "../components/Nav.astro";
         fill: #999999;
       }
     </style>
+  </head>
+  <body>
+    <div class="App">
+      <div class="page">
+        <Nav />
+        <slot />
+      </div>
+    </div>
+    <Footer />
   </body>
 </html>
